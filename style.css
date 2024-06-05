@@ -1,108 +1,65 @@
-html, body, *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
-    font-size: 1.2rem;
-}
+//Testing connection
+// alert('Connected successfully');
 
-body{
-    background: #efeeee;
-}
+//Load DOM before script
+document.addEventListener('DOMContentLoaded', () => {
+    
+    //Get html element
+    // const searchbtn = document.getElementById('searchBtn').disabled = true;
+    const location = document.getElementById('location');
+    const temperature = document.getElementById('temperature');
+    const description = document.getElementById('description');
+    const longitude = document.getElementById('longitude');
+    const latitude = document.getElementById('latitude');
+    const icons = document.getElementById('icon')
+    const form = document.querySelector('form');
 
-.container{
-    margin: 10vh auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    max-width: 1024px;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 15px 10px rgba(83, 83, 83, 0.038);
-}
+    function weather(){
 
-#heading{
-    padding: 30px 10px;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    text-align: center;
-}
+        // const img = 'http://openweathermap.org/img/w/';
+        // const png = '.png';
+        //Store input value
+        let userInput = document.querySelector('#searchInput').value;
+        
+        //store api key into a variable
+        const apiKEY = '5cb2d25bcf3179ae6823dff05d61557b';
+        
+        //Condition for input field
+        if(userInput != ''){
 
-.form-container{
-    padding: 10px;
-    margin-bottom: 15px;
-}
+        document.getElementById('message').innerHTML = 'Location';
+        //Fetch api
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + userInput + '&appid=' + apiKEY)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data){
 
-.form-container #searchInput{
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 3px 5px;
-    margin-right: 10px;
-}
-.form-container #searchInput[type=text]{
-   color: gray;
-}
+            location.innerHTML = data.name;
+            temperature.innerHTML = data.main.temp;
+            description.innerHTML = data.weather[0].description;
+            longitude.innerHTML = data.coord.lon;
+            latitude.innerHTML = data.coord.lat;
+          
+            const iconCode = data.weather[0].icon;
+            icons.src = `http://openweathermap.org/img/w/${iconCode}.png`
+            console.log(iconCode)
+            // icons.innerHTML = 
+            // console.log(data)
+        })
+        .catch(function() {
+            console.log('Error')
+        })}else{
+            document.getElementById('message').innerHTML = 'Invalid input'
+        }
+    }
 
-.form-container #searchInput:focus{
-    outline: 1px solid rgb(0, 135, 254);
-    box-shadow: 2px 2px 10px 4px rgba(0, 105, 251, 0.165);
-}
+    //event listener for form submission
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-.form-container #searchBtn{
-    border: none;
-    background: rgb(0, 135, 254);
-    padding: 6px 15px;
-    border-radius: 7px;
-    color: #fff;
-    margin: 5px 5px;
-}
-
-.form-container #searchBtn:hover{
-    box-shadow: 2px 2px 10px 4px rgba(0, 105, 251, 0.165);
-}
-
-.result-container{
-    padding: 25px;
-    flex-direction: column;
-    max-width: 700px;
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.5rem;
-   
-}
-
-.location-container{
-    display: flex;
-    justify-content:space-evenly ;
-    align-items: center;
-    flex-direction: row;
-    text-align: center;
-}
-
-.location{
-    padding: 20px;
-    text-align: center;
-}
-
-.temperature{
-    margin: 10px 15px;
-}
-
-.description{
-    margin: 10px 15px;
-}
-.latitude{
-    margin: 10px 15px;
-}
-
-.longitude{
-    margin: 10px 15px;
-}
-
-#temperature, #description, #latitude, #longitude{
-    font-weight: 500;;
-}
+        //invoking weather function upon submission
+        weather();
+        
+    })
+})
