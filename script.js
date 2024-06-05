@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function weather(){
 
+        // const img = 'http://openweathermap.org/img/w/';
+        // const png = '.png';
         //Store input value
         let userInput = document.querySelector('#searchInput').value;
         
@@ -40,8 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
             latitude.innerHTML = data.coord.lat;
           
             const iconCode = data.weather[0].icon;
+            icons.src = `http://openweathermap.org/img/w/${iconCode}.png`
             console.log(iconCode)
-            // icons.innerHTML = fetch('http://openweathermap.org/img/w/' + iconCode + '.png');
+            // icons.innerHTML = 
             // console.log(data)
         })
         .catch(function() {
