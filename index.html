@@ -1,1 +1,62 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./font-awesome 4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+
+    <div class="container">
+        <div>
+            <div>
+                <h1 id="heading">Weather App</h1>
+            </div>
+            <div class="form-container">
+                <form>
+                    <input type="text" name="citySearch" id="searchInput" placeholder="Search a city">
+                    <button type="submit" id="searchBtn"><i class="fa fa-search"></i> Search</button>
+                </form>
+            </div>
+        </div>
+        
+        <div>
+            <div class="location-container">
+                <div>
+                    <span id="message">Location</span>
+                    <h4 id="location"></h4>
+                </div>
+                <div>
+                    <span id="icon"></span>
+                </div>
+
+            </div>
+            <div class="result-container">
+                <div class="temperature">
+                    <span>Temperature</span>
+                    <p id="temperature"></p>
+                </div>
+                <div class="description">
+                    <span>Description</span>
+                    <p id="description"></p>
+                </div>
+                <div class="latitude">
+                    <span>Latitude</span>
+                    <p id="latitude"></p>
+                </div>
+                <div class="longitude">
+                    <span>Longitude</span>
+                    <p id="longitude"></p>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
