@@ -1,113 +1,180 @@
-html, body, *{
+html,
+body,
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
 }
 
-body{
-    background: #efeeee;
+body {
+    /* background: #efeeee; */
+    background: #00242f;
 }
 
-.container{
-    margin: 10vh auto;
+.container {
+    margin: 5vh auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    max-width: 1024px;
-    background: #fff;
+    max-width: 30%;
+    background: linear-gradient(135deg, #80d0c7, #13547a);
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 3px 3px 15px 10px rgba(83, 83, 83, 0.038);
+    color: white;
 }
 
-#heading{
-    padding: 30px 10px;
+#heading {
+    padding: 20px 10px;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
 }
 
-.form-container{
+.form-container {
     padding: 10px;
     margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
 }
 
-.form-container #searchInput{
+.form-container #searchInput {
     border: 1px solid gray;
     border-radius: 5px;
-    padding: 3px 5px;
+    padding: 10px 15px;
     margin-right: 10px;
-}
-.form-container #searchInput[type=text]{
-   color: gray;
+    width: 70%;
+    max-width: 500px;
+    font-size: 1rem;
 }
 
-.form-container #searchInput:focus{
+button {
+    margin: 10px;
+    width: 70%;
+    max-width: 500px;
+}
+
+.form-container #searchInput[type=text] {
+    color: gray;
+}
+
+.form-container #searchInput:focus {
     outline: 1px solid rgb(0, 135, 254);
     box-shadow: 2px 2px 10px 4px rgba(0, 105, 251, 0.165);
 }
 
-.form-container #searchBtn{
+.form-container #searchBtn {
     border: none;
     background: rgb(0, 135, 254);
-    padding: 6px 15px;
+    padding: 10px 20px;
     border-radius: 7px;
     color: #fff;
-    margin: 5px 5px;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.form-container #searchBtn:hover{
+.form-container #searchBtn:hover {
     box-shadow: 2px 2px 10px 4px rgba(0, 105, 251, 0.165);
 }
 
-.result-container{
+.result-container1,
+.result-container2 {
+    margin: 5px;
+}
+
+.main-result-container {
     padding: 25px;
-    flex-direction: column;
-    max-width: 700px;
-    flex-direction: row;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.5rem;
-   
+    font-size: 1rem;
+    width: 100%;
+    font-size: center;
+    gap: 30px;
 }
 
-.location-container{
+.location-container {
     display: flex;
-    justify-content:space-evenly ;
+    justify-content: center;
     align-items: center;
-    flex-direction: row;
     text-align: center;
-}
-
-.location{
     padding: 20px;
-    text-align: center;
 }
 
-.temperature{
-    margin: 10px 15px;
-}
-
-.description{
-    margin: 10px 15px;
-}
-.latitude{
-    margin: 10px 15px;
-}
-
-.longitude{
-    margin: 10px 15px;
-}
-
-#temperature, #description, #latitude, #longitude{
-    font-weight: 500;;
-}
-
-img{
-    width: 50px;
+.location-container img {
+    margin-left: 20px;
+    width: 100px;
+    /* Increased icon size */
     height: auto;
+}
+
+.temperature,
+.description,
+.latitude,
+.longitude {
+    margin: 10px 0;
+}
+
+#temperature,
+#description,
+#latitude,
+#longitude {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+img {
+    width: 70px;
+    height: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .result-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .form-container #searchInput {
+        width: 60%;
+    }
+
+    .form-container #searchBtn {
+        padding: 8px 15px;
+    }
+
+    #heading {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container #searchInput {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-container #searchBtn {
+        width: 100%;
+    }
+
+    #heading {
+        font-size: 1.5rem;
+    }
+
+    #temperature,
+    #description,
+    #latitude,
+    #longitude {
+        font-size: 1.2rem;
+    }
+
+    .location-container img {
+        width: 80px;
+
+    }
 }

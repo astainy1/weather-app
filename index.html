@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
 </head>
+
 <body>
 
     <div class="container">
@@ -16,12 +18,12 @@
             </div>
             <div class="form-container">
                 <form>
-                    <input type="text" name="citySearch" id="searchInput" placeholder="Search a city">
+                    <input type="text" name="citySearch" id="searchInput" placeholder="Search a city" required>
                     <button type="submit" id="searchBtn"><i class="fa fa-search"></i> Search</button>
                 </form>
             </div>
         </div>
-        
+
         <div>
             <div class="location-container">
                 <div>
@@ -33,29 +35,35 @@
                 </div>
 
             </div>
-            <div class="result-container">
-                <div class="temperature">
-                    <span>Temperature</span>
-                    <p id="temperature"></p>
+            <div class="main-result-container">
+                <div class="result-container1">
+                    <div class="temperature">
+                        <span>Temperature</span>
+                        <p id="temperature"></p>
+                    </div>
+                    <div class="description">
+                        <span>Description</span>
+                        <p id="description"></p>
+                    </div>
                 </div>
-                <div class="description">
-                    <span>Description</span>
-                    <p id="description"></p>
-                </div>
-                <div class="latitude">
-                    <span>Latitude</span>
-                    <p id="latitude"></p>
-                </div>
-                <div class="longitude">
-                    <span>Longitude</span>
-                    <p id="longitude"></p>
-                </div>
+                <div class="result-container2">
+                    <div class="latitude">
+                        <span>Latitude</span>
+                        <p id="latitude"></p>
+                    </div>
+                    <div class="longitude">
+                        <span>Longitude</span>
+                        <p id="longitude"></p>
+                    </div>
 
+                </div>
             </div>
+
         </div>
-        
+
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
